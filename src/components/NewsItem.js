@@ -20,7 +20,7 @@ export default class NewsItem extends React.Component {
           paddingVertical: 4,
           paddingHorizontal: 10
         }}
-        activeOpacity={0.5}
+        // activeOpacity={0.5}
         onPress={handleOnPress}
       >
         <View style={{flexDirection: 'row'}}>

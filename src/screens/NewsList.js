@@ -10,18 +10,20 @@ export default class NewsList extends React.Component {
   state = {
     data: {},
     fetched: false,
-    error: false,
+    error: false
   }
-
   componentDidMount () {
     fetch(Urls[this.props.newsType.toLowerCase()])
       .then(res => res.json())
       .then(data => {
-
-        this.newsRelated = data.related_main_stories.map((story, index) => {
-          return <NewsRelated key={index} title={story.title}/>
+        this.newsRelated = data.related_story_contents.map((story, index) => {
+          return <NewsRelated
+              key={index}
+              data={story}
+              backText={this.props.newsType}
+              navigation={this.props.navigation}
+          />
         })
-
         this.newsStories = data.stories.map((story, index) => {
           return (
             <NewsItem key={index}
@@ -31,10 +33,10 @@ export default class NewsList extends React.Component {
             />
           )
         })
-
         this.setState({data, fetched: true})
       })
       .catch(err => {
+        console.log(err)
         this.setState({error: true})
       })
   }

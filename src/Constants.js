@@ -1,5 +1,6 @@
 export const Colors = {
-  news: '#CC0001',
+  headlines: '#CC0000',
+  news: '#CC0000',
   sports: '#264CC9',
   money: '#1F6F1F',
   scitech: '#FFA200',

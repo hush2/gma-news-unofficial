@@ -12,6 +12,7 @@ export default class NewsList extends React.Component {
     fetched: false,
     error: false
   }
+
   componentDidMount () {
     fetch(Urls[this.props.newsType.toLowerCase()])
       .then(res => res.json())

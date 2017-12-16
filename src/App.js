@@ -8,6 +8,7 @@ import {
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { NavigationActions, DrawerNavigator, StackNavigator } from 'react-navigation'
 import Drawer from './components/Drawer'
+import Headlines from './screens/Headlines'
 import NewsList from './screens/NewsList'
 import NewsView from './screens/NewsView'
 
@@ -29,9 +30,13 @@ const HeaderTitle = (props) => {
 }
 
 const StackNav = StackNavigator({
+  Headlines: {
+    screen: ({navigation}) =>
+      <Headlines newsType='Headlines' navigation={navigation}/>
+  },
   News: {
     screen: ({navigation}) =>
-      <NewsList newsType='HashTag' navigation={navigation}/>,
+      <NewsList newsType='HashTag' navigation={navigation}/>
   },
   Sports: {
     screen: ({navigation}) =>

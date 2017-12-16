@@ -7,5 +7,5 @@ export const Colors = {
   lifestyle: '#6500CC',
   opinion: '#993300',
   hashtag: '#42BFF0',
-  serbisyo: '#FF4C1F',
+  'serbisyo publiko': '#FF4C1F',
 }

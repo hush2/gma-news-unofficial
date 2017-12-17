@@ -6,7 +6,7 @@ import {
   TouchableOpacity
 } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { NavigationActions, DrawerNavigator, StackNavigator } from 'react-navigation'
+import { DrawerNavigator, StackNavigator } from 'react-navigation'
 import Drawer from './components/Drawer'
 import Headlines from './screens/Headlines'
 import NewsList from './screens/NewsList'

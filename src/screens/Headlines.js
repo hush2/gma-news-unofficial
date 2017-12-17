@@ -1,14 +1,45 @@
 import React from 'react'
 import {
-  ScrollView,
   StyleSheet,
+  ScrollView,
   View,
   Text,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native'
-import { Error, Loading, NewsMain, NewsRelated } from '../components'
+import { Error, Loading, NewsMain } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
+
+const Featured = ({data, backText, navigation}) => {
+  if (!data) {
+    return <View/>
+  }
+  return (
+    <View style={{flex: 1, marginRight: 0}}>
+      <TouchableOpacity onPress={() => navigation.navigate('NewsView', {main: data, backText})
+      }>
+        <Text
+          style={{
+            paddingLeft: 10,
+            borderRightColor: '#3869d2',
+            borderRightWidth: 1,
+            fontSize: 12,
+            color: '#fff',
+            backgroundColor: Colors[data.sec_name.toLowerCase()]
+          }}>
+          FEATURED
+        </Text>
+        <Image
+          style={{width: null, height: 150}}
+          source={{uri: data.base_url + data.base_filename}}
+        />
+        {!!data.kicker && <Text>{data.kicker}</Text>}
+        <Text>{data.title}</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
 
 export default class Headlines extends React.Component {
 
@@ -22,23 +53,6 @@ export default class Headlines extends React.Component {
     fetch(Urls[this.props.newsType.toLowerCase()])
       .then(res => res.json())
       .then(data => {
-        // this.newsRelated = data.related_story_contents.map((story, index) => {
-        //   return <NewsRelated
-        //     key={index}
-        //     data={story}
-        //     backText={this.props.newsType}
-        //     navigation={this.props.navigation}
-        //   />
-        // })
-        // this.newsStories = data.stories.map((story, index) => {
-        //   return (
-        //     <NewsItem key={index}
-        //               data={story}
-        //               backText={this.props.newsType}
-        //               navigation={this.props.navigation}
-        //     />
-        //   )
-        // })
         this.setState({data, fetched: true})
       })
       .catch(err => {
@@ -56,7 +70,7 @@ export default class Headlines extends React.Component {
     }
 
     const featured = this.state.data.featured_stories
-    console.log(featured[1].sec_name.toLowerCase())
+
     return (
       <ScrollView style={s.container}>
         <NewsMain
@@ -65,64 +79,19 @@ export default class Headlines extends React.Component {
           data={this.state.data.headlines[0]}
           navigation={this.props.navigation}
         />
-
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <View style={{flex: 1, marginRight: 0}}>
-            <Text
-              style={{
-                paddingLeft: 10,
-                borderRightColor: '#3869d2',
-                borderRightWidth: 1,
-                fontSize: 12,
-                color: '#fff',
-                backgroundColor: Colors[featured[0].sec_name.toLowerCase()]
-              }}>
-              FEATURED
-            </Text>
-            <Image
-              style={{width: null, height: 150}}
-              source={{uri: featured[0].base_url + featured[0].base_filename}}
-            />
-            {!!featured[0].kicker && <Text>{featured[0].kicker}</Text>}
-            <Text>{featured[0].title}</Text>
-          </View>
-
-          <View style={{flex: 1, flexDirection: 'row'}}>
-            <View style={{flex: 1, marginRight: 0}}>
-              <Text
-                style={{
-                  paddingLeft: 10,
-                  borderRightColor: '#3869d2',
-                  borderRightWidth: 1,
-                  fontSize: 12,
-                  color: '#fff',
-                  backgroundColor: Colors[featured[1].sec_name.toLowerCase()]
-                }}>
-                FEATURED
-              </Text>
-              <Image
-                style={{width: null, height: 150}}
-                source={{uri: featured[1].base_url + featured[1].base_filename}}
-              />
-              {!!featured[1].kicker && <Text>{featured[1].kicker}</Text>}
-              <Text>{featured[1].title}</Text>
-            </View>
-          </View>
-
+          <Featured data={featured[0]} backText={this.props.newsType} navigation={this.props.navigation}/>
+          <Featured data={featured[1]} backText={this.props.newsType} navigation={this.props.navigation}/>
         </View>
       </ScrollView>
     )
   }
 }
 
-const IMAGE_BG_HEIGHT = 200
-
 const s = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff'
-    // alignItems: 'center',
-    // justifyContent: 'center'
   },
   error: {
     flex: 1,
@@ -131,7 +100,7 @@ const s = StyleSheet.create({
   },
   imageBackground: {
     width: null,
-    height: IMAGE_BG_HEIGHT
+    height: 220
   },
   kicker: {
     fontSize: 14,

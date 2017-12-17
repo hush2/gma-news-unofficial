@@ -1,20 +1,13 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "react-native"
-  ],
+  "plugins": ["react", "react-native"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
       "modules": true
     }
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "standard"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "standard"],
   "rules": {
     "arrow-body-style": "warn",
     "linebreak-style": "off",
@@ -26,7 +19,6 @@
     "no-console": "off",
     "quotes": "off",
     "global-require": "off",
-    "arrow-parens": "off",
     "space-before-function-paren": "off",
     "react/prop-types": "off",
     "react/display-name": "off",

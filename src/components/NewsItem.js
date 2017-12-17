@@ -1,15 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, TouchableOpacity, Text, Image } from 'react-native'
-import { Error, Loading, NewsMain, NewsRelated } from '../components'
-import Urls from '../Urls'
+import { View, TouchableOpacity, Text, Image } from 'react-native'
 
 export default class NewsItem extends React.Component {
-
-  render () {
+  render() {
     const handleOnPress = () => {
-      this.props.navigation.navigate('NewsView', {main: story, backText: this.props.backText})
+      this.props.navigation.navigate('NewsView', { main: story, backText: this.props.backText })
     }
-
     const story = this.props.data
     return (
       <TouchableOpacity
@@ -18,20 +14,18 @@ export default class NewsItem extends React.Component {
           borderBottomWidth: 1,
           borderBottomColor: '#cccccc',
           paddingVertical: 4,
-          paddingHorizontal: 10
+          paddingHorizontal: 10,
         }}
-        // activeOpacity={0.5}
-        onPress={handleOnPress}
-      >
-        <View style={{flexDirection: 'row'}}>
+        onPress={handleOnPress}>
+        <View style={{ flexDirection: 'row' }}>
           <Image
-            resizeMethod='resize'
-            style={{width: 128, height: 96}}
-            source={{uri: encodeURI(story.base_url + story.base_filename)}}
+            resizeMethod="resize"
+            style={{ width: 128, height: 96 }}
+            source={{ uri: encodeURI(story.base_url + story.base_filename) }}
           />
-          <View style={{flex: 1}}>
-            {!!story.kicker && <Text style={{fontSize: 12}}>{story.kicker}</Text>}
-            <Text style={{fontSize: 18}}>{story.title}</Text>
+          <View style={{ flex: 1 }}>
+            {!!story.kicker && <Text style={{ fontSize: 12 }}>{story.kicker}</Text>}
+            <Text style={{ fontSize: 18 }}>{story.title}</Text>
             <Text>{story.date}</Text>
           </View>
         </View>
@@ -40,5 +34,3 @@ export default class NewsItem extends React.Component {
     )
   }
 }
-
-const s = StyleSheet.create({})

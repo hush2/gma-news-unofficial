@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons'
 export default class NewsRelated extends React.Component {
   render() {
     const handleOnPress = () => {
-      this.props.navigation.navigate('NewsView', {main: story, backText: this.props.backText})
+      this.props.navigation.navigate('NewsView', { main: story, backText: this.props.backText })
     }
     const story = this.props.data
     return (

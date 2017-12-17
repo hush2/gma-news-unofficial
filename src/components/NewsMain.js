@@ -3,18 +3,21 @@ import { StyleSheet, ImageBackground, View, Text, TouchableOpacity } from 'react
 import { BlurView } from 'expo'
 
 export default class NewsMain extends React.Component {
-  render () {
+  render() {
     const main = this.props.data
     const labelColor = this.props.labelColor || '#FF0000'
 
     return (
       <TouchableOpacity
-        onPress={
-          () => this.props.navigation.navigate('NewsView', {main, backText: this.props.label})
+        onPress={() =>
+          this.props.navigation.navigate('NewsView', { main, backText: this.props.label })
         }>
-        <ImageBackground source={{uri: encodeURI(main.base_url + main.base_filename)}}
-                         style={s.imageBackground}>
-          <Text style={[s.label, {backgroundColor: labelColor}]}>{this.props.label.toUpperCase()}</Text>
+        <ImageBackground
+          source={{ uri: encodeURI(main.base_url + main.base_filename) }}
+          style={s.imageBackground}>
+          <Text style={[s.label, { backgroundColor: labelColor }]}>
+            {this.props.label.toUpperCase()}
+          </Text>
           <View style={s.titleContainer}>
             <BlurView style={s.blur} tint="dark" intensity={50}>
               {!!main.kicker && <Text style={s.kicker}>{main.kicker}</Text>}

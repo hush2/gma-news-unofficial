@@ -42,11 +42,11 @@ export default class Headlines extends React.Component {
 
   componentDidMount() {
     fetch(Urls[this.props.newsType.toLowerCase()])
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         this.setState({ data, fetched: true })
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err)
         this.setState({ error: true })
       })

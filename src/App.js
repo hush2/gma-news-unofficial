@@ -7,7 +7,7 @@ import Headlines from './screens/Headlines'
 import NewsList from './screens/NewsList'
 import NewsView from './screens/NewsView'
 
-const HeaderTitle = props => {
+const HeaderTitle = (props) => {
   // Use the 'title' property, ie: 'Back to ...'
   if (props.children) {
     return <Text style={s.title}>{props.children}</Text>
@@ -63,7 +63,7 @@ const StackNav = StackNavigator(
   },
   {
     navigationOptions: ({ navigation }) => ({
-      headerTitle: props => <HeaderTitle navigation={navigation} {...props} />,
+      headerTitle: (props) => <HeaderTitle navigation={navigation} {...props} />,
     }),
   }
 )
@@ -73,7 +73,6 @@ const DrawerNav = DrawerNavigator(
     Headlines: { screen: StackNav },
   },
   {
-    drawerWidth: 250,
     drawerBackgroundColor: '#ffffff',
     contentComponent: Drawer,
     contentOptions: {},
@@ -83,9 +82,6 @@ const DrawerNav = DrawerNavigator(
 export default DrawerNav
 
 const s = StyleSheet.create({
-  container: {
-    // marginTop: Expo.Constants.statusBarHeight
-  },
   header: {
     flexDirection: 'row',
     marginHorizontal: 12,

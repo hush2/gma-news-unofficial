@@ -1,0 +1,30 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["react", "react-native"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "standard"],
+  "rules": {
+    "arrow-body-style": "warn",
+    "linebreak-style": "off",
+    "no-use-before-define": "off",
+    "semi": "off",
+    "comma-dangle": "off",
+    "no-unused-vars": "warn",
+    "prefer-template": "off",
+    "no-console": "off",
+    "quotes": "off",
+    "global-require": "off",
+    "arrow-parens": "off",
+    "space-before-function-paren": "off",
+    "react/prop-types": "off",
+    "react/display-name": "off"
+  },
+  "globals": {
+    "fetch": false
+  }
+}

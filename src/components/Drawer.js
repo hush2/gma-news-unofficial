@@ -14,11 +14,13 @@ export default class MyDrawer extends React.Component {
   }
 
   DrawerItem = (props) => {
-    let color = Colors[props.text.toLowerCase()]
+    const color = Colors[props.text.toLowerCase()]
+    const route = props.text.split(' ')[0]
+    console.log(route)
     return (
       <TouchableOpacity
         style={[s.drawerItem, { backgroundColor: color }]}
-        onPress={() => this.showScreen(props.text)}
+        onPress={() => this.showScreen(route)}
       >
         <FontAwesome name={props.icon} size={24} color="#FFFFFF" />
         <Text style={s.drawerText}>{props.text}</Text>

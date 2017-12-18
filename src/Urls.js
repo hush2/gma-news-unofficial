@@ -12,7 +12,7 @@ export default {
   lifestyle: base + `get_lifestyle${n}.json.gz`,
   opinion: base + `get_opinion${n}.json.gz`,
   hashtag: base + `get_hashtag${n}.json.gz`,
-  'serbisyo publiko': base + `get_serbisyopubliko${n}.json.gz`,
+  serbisyo: base + `get_serbisyopubliko${n}.json.gz`,
   video: base + `get_video${n}.json.gz`,
   photo: base + `get_photo${n}.json.gz`,
 }

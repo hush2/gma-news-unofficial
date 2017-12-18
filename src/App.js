@@ -30,7 +30,7 @@ const StackNav = StackNavigator(
       screen: ({ navigation }) => <Headlines newsType="Headlines" navigation={navigation} />,
     },
     News: {
-      screen: ({ navigation }) => <NewsList newsType="HashTag" navigation={navigation} />,
+      screen: ({ navigation }) => <NewsList newsType="News" navigation={navigation} />,
     },
     Sports: {
       screen: ({ navigation }) => <NewsList newsType="Sports" navigation={navigation} />,

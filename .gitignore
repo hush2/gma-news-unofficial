@@ -22,4 +22,4 @@ yarn-error.log*
 notes.txt
 
 /src/data/*
-
+.eslintrc.json

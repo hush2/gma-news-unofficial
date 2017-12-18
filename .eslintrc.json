@@ -25,7 +25,9 @@
     "no-trailing-spaces": "off",
     "indent": "off",
     "no-multiple-empty-lines": "off",
-    "padded-blocks": "off"
+    "padded-blocks": "off",
+    "new-cap": "off",
+    "no-empty": "off"
   },
   "globals": {
     "fetch": false,

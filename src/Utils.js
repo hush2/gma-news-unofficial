@@ -1,5 +1,7 @@
 import { AsyncStorage } from 'react-native'
 
+const mins = 10 // Do not check for x minutes
+
 export async function fetchData(url, key) {
   let headers = {}
   let cache = await AsyncStorage.getItem(key).then((data) => JSON.parse(data))
@@ -8,18 +10,23 @@ export async function fetchData(url, key) {
       'If-Modified-Since': cache.date,
       'If-None-Match': cache.etag,
     })
+    if (Date.now() <= cache.expire) {
+      return Promise.resolve(cache.data)
+    }
   }
 
   var req = new Request(url, { method: 'GET', headers })
 
   return fetch(req)
     .then((res) => {
+      console.log(res.status)
       if (res.status === 200) {
         return res.json().then((data) => {
           let cache = {
             etag: res.headers.map.etag[0],
             date: res.headers.map['last-modified'][0],
             data: data,
+            expire: Date.now() + mins * 60000,
           }
           AsyncStorage.setItem(key, JSON.stringify(cache))
           return data

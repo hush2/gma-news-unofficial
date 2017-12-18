@@ -23,7 +23,8 @@
     "react/prop-types": "off",
     "react/display-name": "off",
     "no-trailing-spaces": "off",
-    "indent": "off"
+    "indent": "off",
+    "no-multiple-empty-lines": "off"
   },
   "globals": {
     "fetch": false

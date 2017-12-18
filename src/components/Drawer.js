@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { StatusBar, ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import { Colors } from '../Constants'
@@ -29,9 +29,9 @@ export default class MyDrawer extends React.Component {
 
   render() {
     return (
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView style={s.container} showsVerticalScrollIndicator={false}>
         <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
-          <View style={{ flex: 1 }}>
+          <View style={s.drawerItems}>
             <this.DrawerItem text="Headlines" icon="home" />
             <this.DrawerItem text="News" icon="newspaper-o" />
             <this.DrawerItem text="Sports" icon="soccer-ball-o" />
@@ -52,6 +52,13 @@ export default class MyDrawer extends React.Component {
 const s = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#F0F0F0',
+    borderBottomRightRadius: 10,
+    borderTopRightRadius: 10,
+    marginTop: Expo.Constants.statusBarHeight,
+  },
+  drawerItems: {
+    marginVertical: 10,
   },
   drawerText: {
     flex: 1,
@@ -62,8 +69,8 @@ const s = StyleSheet.create({
   drawerItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 4,
-    marginHorizontal: 30,
+    marginVertical: 2,
+    marginHorizontal: 8,
     paddingVertical: 12,
     paddingLeft: 30,
     borderRadius: 10,

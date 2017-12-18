@@ -15,8 +15,6 @@ const Featured = ({ data, backText, navigation }) => {
         <Text
           style={{
             paddingLeft: 10,
-            borderRightColor: '#3869d2',
-            borderRightWidth: 1,
             fontSize: 12,
             color: '#fff',
             backgroundColor: Colors[data.sec_name.toLowerCase()],

@@ -64,6 +64,7 @@ const StackNav = StackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       headerTitle: (props) => <HeaderTitle navigation={navigation} {...props} />,
+      headerStyle: { marginTop: Expo.Constants.statusBarHeight },
     }),
   }
 )
@@ -73,7 +74,7 @@ const DrawerNav = DrawerNavigator(
     Headlines: { screen: StackNav },
   },
   {
-    drawerBackgroundColor: '#ffffff',
+    drawerBackgroundColor: 'transparent',
     contentComponent: Drawer,
     contentOptions: {},
   }

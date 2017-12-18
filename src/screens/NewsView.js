@@ -4,7 +4,7 @@ import HTMLView from 'react-native-htmlview'
 
 export default class NewsView extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Back to ' + navigation.state.params.backText,
+    title: navigation.state.params.backText,
   })
 
   renderNode(node, index) {

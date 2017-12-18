@@ -27,6 +27,8 @@
     "no-multiple-empty-lines": "off"
   },
   "globals": {
-    "fetch": false
+    "fetch": false,
+    "Headers": false,
+    "Request": false
   }
 }

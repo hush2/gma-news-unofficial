@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-const mins = 60 // Do not check for x minutes
+const mins = 10 // Do not check for x minutes
 
 export async function fetchData(url, key) {
   let headers = {}
@@ -31,7 +31,11 @@ export async function fetchData(url, key) {
           return data
         })
       } else if (res.status === 304) {
-        return AsyncStorage.getItem(key).then((cache) => JSON.parse(cache).data)
+        return AsyncStorage.getItem(key).then((cache) => {
+          cache.expire = Date.now() + mins * 60000
+          AsyncStorage.setItem(key, cache)
+          return JSON.parse(cache).data
+        })
       }
       throw new Error(res.statusText)
     })

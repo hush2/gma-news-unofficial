@@ -3,6 +3,7 @@ import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'rea
 import { Error, Loading, NewsMain } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
+import { fetchData } from '../Utils'
 
 const Featured = ({ data, backText, navigation }) => {
   if (!data) {
@@ -19,7 +20,8 @@ const Featured = ({ data, backText, navigation }) => {
             fontSize: 12,
             color: '#fff',
             backgroundColor: Colors[data.sec_name.toLowerCase()],
-          }}>
+          }}
+        >
           FEATURED
         </Text>
         <Image
@@ -40,16 +42,25 @@ export default class Headlines extends React.Component {
     error: false,
   }
 
-  componentDidMount() {
-    fetch(Urls[this.props.newsType.toLowerCase()])
-      .then((res) => res.json())
-      .then((data) => {
-        this.setState({ data, fetched: true })
-      })
-      .catch((err) => {
-        console.log(err)
-        this.setState({ error: true })
-      })
+  async componentDidMount() {
+    let url = Urls[this.props.newsType.toLowerCase()]
+    try {
+      let data = await fetchData(url, this.props.newsType)
+
+      this.setState({ data, fetched: true })
+    } catch (err) {
+      this.setState({ error: true })
+    }
+
+    // fetch(Urls[this.props.newsType.toLowerCase()])
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     this.setState({ data, fetched: true })
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //     this.setState({ error: true })
+    //   })
   }
 
   render() {

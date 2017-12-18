@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 
-const mins = 10 // Do not check for x minutes
+const mins = 60 // Do not check for x minutes
 
 export async function fetchData(url, key) {
   let headers = {}
@@ -19,7 +19,6 @@ export async function fetchData(url, key) {
 
   return fetch(req)
     .then((res) => {
-      console.log(res.status)
       if (res.status === 200) {
         return res.json().then((data) => {
           let cache = {

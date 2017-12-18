@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
-import { Error, Loading, NewsMain } from '../components'
+import { Error, Loading, NewsMain, NewsItem } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
 import { fetchData } from '../Utils'
@@ -33,6 +33,14 @@ const Featured = ({ data, backText, navigation }) => {
       </TouchableOpacity>
     </View>
   )
+}
+
+const NewsItems = (props) => {
+  return props.data.map((story, index) => {
+    return (
+      <NewsItem key={index} data={story} backText={props.backText} navigation={props.navigation} />
+    )
+  })
 }
 
 export default class Headlines extends React.Component {
@@ -78,6 +86,27 @@ export default class Headlines extends React.Component {
           />
           <Featured
             data={featured[1]}
+            backText={this.props.newsType}
+            navigation={this.props.navigation}
+          />
+        </View>
+
+        <View>
+          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>JUST IN</Text>
+          <NewsItems
+            data={this.state.data.just_in}
+            backText={this.props.newsType}
+            navigation={this.props.navigation}
+          />
+          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>TOP PICKS</Text>
+          <NewsItems
+            data={this.state.data.top_picks}
+            backText={this.props.newsType}
+            navigation={this.props.navigation}
+          />
+          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>TRENDING</Text>
+          <NewsItems
+            data={this.state.data.trending}
             backText={this.props.newsType}
             navigation={this.props.navigation}
           />

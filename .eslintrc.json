@@ -27,7 +27,8 @@
     "no-multiple-empty-lines": "off",
     "padded-blocks": "off",
     "new-cap": "off",
-    "no-empty": "off"
+    "no-empty": "off",
+    "comma-spacing": "off"
   },
   "globals": {
     "fetch": false,

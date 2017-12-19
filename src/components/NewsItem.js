@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, TouchableOpacity, Text, Image } from 'react-native'
+import moment from 'moment'
 
 export default class NewsItem extends React.Component {
   render() {
@@ -7,6 +8,7 @@ export default class NewsItem extends React.Component {
       this.props.navigation.navigate('NewsView', { main: story, backText: this.props.backText })
     }
     const story = this.props.data
+
     return (
       <TouchableOpacity
         style={{
@@ -16,7 +18,8 @@ export default class NewsItem extends React.Component {
           paddingVertical: 4,
           paddingHorizontal: 10,
         }}
-        onPress={handleOnPress}>
+        onPress={handleOnPress}
+      >
         <View style={{ flexDirection: 'row' }}>
           <Image
             resizeMethod="resize"
@@ -26,7 +29,7 @@ export default class NewsItem extends React.Component {
           <View style={{ flex: 1 }}>
             {!!story.kicker && <Text style={{ fontSize: 12 }}>{story.kicker}</Text>}
             <Text style={{ fontSize: 18 }}>{story.title}</Text>
-            <Text>{story.date}</Text>
+            <Text>{moment(story.date).fromNow()}</Text>
           </View>
         </View>
         <Text>{story.teaser}</Text>

@@ -2,9 +2,26 @@ import React from 'react'
 import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
+import DrawerHeader from './DrawerHeader'
 import { Colors } from '../Constants'
+import Urls from '../Urls'
+import { fetchData } from '../Utils'
 
 export default class MyDrawer extends React.Component {
+  state = {
+    data: {},
+    error: false,
+  }
+  async componentDidMount() {
+    this.props.navigation.navigate('DrawerOpen')
+    try {
+      let data = await fetchData(Urls.sconfig, 'sconfig')
+      this.setState({ data: data })
+    } catch (err) {
+      this.setState({ error: true })
+    }
+  }
+
   showScreen = (route) => {
     const action = NavigationActions.reset({
       index: 0,
@@ -31,6 +48,9 @@ export default class MyDrawer extends React.Component {
     return (
       <ScrollView style={s.container} showsVerticalScrollIndicator={false}>
         <SafeAreaView forceInset={{ top: 'always', horizontal: 'never' }}>
+          <View style={s.forex}>
+            <DrawerHeader data={this.state.data} />
+          </View>
           <View style={s.drawerItems}>
             <this.DrawerItem text="Headlines" icon="home" />
             <this.DrawerItem text="News" icon="newspaper-o" />
@@ -57,7 +77,7 @@ const s = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   drawerItems: {
-    marginVertical: 10,
+    marginVertical: 2,
   },
   drawerText: {
     flex: 1,
@@ -73,5 +93,8 @@ const s = StyleSheet.create({
     paddingVertical: 12,
     paddingLeft: 30,
     borderRadius: 10,
+  },
+  forex: {
+    flex: 1,
   },
 })

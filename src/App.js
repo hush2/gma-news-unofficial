@@ -1,5 +1,6 @@
 import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import Expo from 'expo'
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
 import Drawer from './components/Drawer'
@@ -8,15 +9,13 @@ import NewsList from './screens/NewsList'
 import NewsView from './screens/NewsView'
 
 const HeaderTitle = (props) => {
-  // Use the 'title' property, ie: 'Back to ...'
+  // Use the 'title' property
   if (props.children) {
     return <Text style={s.title}>{props.children}</Text>
   }
   return (
     <View style={s.header}>
       <TouchableOpacity onPress={() => props.navigation.navigate('DrawerOpen')}>
-        {/* The menu button could have been on headerLeft, but put it here
-            so we dont have to mess with the back button. */}
         <MaterialCommunityIcons name="menu" size={30} color="red" />
       </TouchableOpacity>
       <Text style={s.headerTitle}>GMA NEWS UNOFFICIAL</Text>
@@ -64,7 +63,6 @@ const StackNav = StackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       headerTitle: (props) => <HeaderTitle navigation={navigation} {...props} />,
-      headerStyle: { marginTop: Expo.Constants.statusBarHeight },
     }),
   }
 )
@@ -80,9 +78,17 @@ const DrawerNav = DrawerNavigator(
   }
 )
 
-export default DrawerNav
+export default () => (
+  <View style={s.container}>
+    <DrawerNav />
+  </View>
+)
 
 const s = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0,
+  },
   header: {
     flexDirection: 'row',
     marginHorizontal: 12,

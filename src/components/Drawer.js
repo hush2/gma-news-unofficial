@@ -1,5 +1,5 @@
 import React from 'react'
-import { StatusBar, ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import { Colors } from '../Constants'
@@ -55,7 +55,6 @@ const s = StyleSheet.create({
     backgroundColor: '#F0F0F0',
     borderBottomRightRadius: 10,
     borderTopRightRadius: 10,
-    marginTop: Expo.Constants.statusBarHeight,
   },
   drawerItems: {
     marginVertical: 10,

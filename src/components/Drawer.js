@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Linking,
 } from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
@@ -19,7 +20,7 @@ export default class MyDrawer extends React.Component {
     error: false,
   }
   async componentDidMount() {
-    // this.props.navigation.navigate('DrawerOpen')
+    this.props.navigation.navigate('DrawerOpen')
     try {
       let data = await fetchData(Urls.sconfig, 'sconfig')
       this.setState({ data: data })
@@ -73,6 +74,15 @@ export default class MyDrawer extends React.Component {
             <this.DrawerItem text="Opinion" icon="quote-right" />
             <this.DrawerItem text="HashTag" icon="hashtag" />
             <this.DrawerItem text="Serbisyo Publiko" icon="support" />
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL('https://github.com/hush2/gma-news-unofficial')
+              }
+            >
+              <View style={s.about}>
+                <Text style={s.aboutText}>CREATED BY github.com/hush2</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </SafeAreaView>
       </ScrollView>
@@ -106,5 +116,16 @@ const s = StyleSheet.create({
   },
   forex: {
     flex: 1,
+  },
+  about: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+    borderTopWidth: 0.5,
+    paddingVertical: 20,
+    borderTopColor: '#DDD',
+  },
+  aboutText: {
+    color: '#AAA',
   },
 })

@@ -20,7 +20,6 @@ yarn-error.log*
 .vscode
 *.bak
 notes.txt
-
 /src/data/*
 .eslintrc.json
 .eslintignore

@@ -1,5 +1,11 @@
 import React from 'react'
-import { StyleSheet, ImageBackground, View, Text, TouchableOpacity } from 'react-native'
+import {
+  StyleSheet,
+  ImageBackground,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native'
 import { BlurView } from 'expo'
 
 export default class NewsMain extends React.Component {
@@ -10,11 +16,16 @@ export default class NewsMain extends React.Component {
     return (
       <TouchableOpacity
         onPress={() =>
-          this.props.navigation.navigate('NewsView', { main, backText: this.props.label })
-        }>
+          this.props.navigation.navigate('NewsView', {
+            main,
+            backText: this.props.label,
+          })
+        }
+      >
         <ImageBackground
           source={{ uri: encodeURI(main.base_url + main.base_filename) }}
-          style={s.imageBackground}>
+          style={s.imageBackground}
+        >
           <Text style={[s.label, { backgroundColor: labelColor }]}>
             {this.props.label.toUpperCase()}
           </Text>

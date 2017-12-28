@@ -20,11 +20,18 @@ export default class NewsView extends React.Component {
 
     return (
       <ScrollView>
-        <Image style={s.image} source={{ uri: encodeURI(main.base_url + main.base_filename) }} />
+        <Image
+          style={s.image}
+          source={{ uri: encodeURI(main.base_url + main.base_filename) }}
+        />
         <View style={s.text}>
           <Text style={s.title}>{main.title}</Text>
           <Text style={s.date}>{main.date}</Text>
-          <HTMLView value={mainText} stylesheet={html} renderNode={this.renderNode} />
+          <HTMLView
+            value={mainText}
+            stylesheet={html}
+            renderNode={this.renderNode}
+          />
         </View>
       </ScrollView>
     )

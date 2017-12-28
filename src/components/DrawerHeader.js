@@ -32,7 +32,9 @@ const Lotto = (props) => (
     </Text>
     <View style={{ alignItems: 'center', marginTop: 10 }}>
       <Text style={{ fontSize: 16 }}>{props.lotto.type.toUpperCase()}</Text>
-      <Text style={{ fontSize: 16, fontWeight: 'bold' }}>{props.lotto.post_date}</Text>
+      <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+        {props.lotto.post_date}
+      </Text>
       <View
         style={{
           marginTop: 10,
@@ -84,7 +86,9 @@ export default class DrawerHeader extends React.Component {
           >
             FOREX
           </Text>
-          <Text style={{ fontSize: 40, alignSelf: 'center' }}>{data.forex.usd}</Text>
+          <Text style={{ fontSize: 40, alignSelf: 'center' }}>
+            {data.forex.usd}
+          </Text>
           <Text style={{ fontSize: 20, alignSelf: 'center' }}>1 USD</Text>
           <Text style={{ fontSize: 14, alignSelf: 'flex-start' }}>More...</Text>
         </View>

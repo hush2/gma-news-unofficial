@@ -1,5 +1,12 @@
 import React from 'react'
-import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
+import {
+  StyleSheet,
+  ScrollView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+} from 'react-native'
 import { Error, Loading, NewsMain, NewsItem } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
@@ -11,7 +18,11 @@ const Featured = ({ data, backText, navigation }) => {
   }
   return (
     <View style={{ flex: 1, marginRight: 0 }}>
-      <TouchableOpacity onPress={() => navigation.navigate('NewsView', { main: data, backText })}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate('NewsView', { main: data, backText })
+        }
+      >
         <Text
           style={{
             paddingLeft: 10,
@@ -36,7 +47,12 @@ const Featured = ({ data, backText, navigation }) => {
 const NewsItems = (props) => {
   return props.data.map((story, index) => {
     return (
-      <NewsItem key={index} data={story} backText={props.backText} navigation={props.navigation} />
+      <NewsItem
+        key={index}
+        data={story}
+        backText={props.backText}
+        navigation={props.navigation}
+      />
     )
   })
 }

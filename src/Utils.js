@@ -33,7 +33,9 @@ export async function fetchData(url, key) {
       } else if (res.status === 304) {
         return AsyncStorage.getItem(key).then((cache) => {
           cache.expire = Date.now() + mins * 60000
-          return AsyncStorage.setItem(key, cache).then((cache) => JSON.parse(cache).data)
+          return AsyncStorage.setItem(key, cache).then(
+            (cache) => JSON.parse(cache).data
+          )
         })
       }
       throw new Error(res.statusText)

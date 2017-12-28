@@ -28,7 +28,9 @@ export default class JustInItem extends React.Component {
             source={{ uri: encodeURI(story.base_url + story.base_filename) }}
           />
           <View style={{ flex: 1 }}>
-            {!!story.kicker && <Text style={{ fontSize: 12 }}>{story.kicker}</Text>}
+            {!!story.kicker && (
+              <Text style={{ fontSize: 12 }}>{story.kicker}</Text>
+            )}
             <Text style={{ fontSize: 18 }}>{story.title}</Text>
             <Text>{story.date}</Text>
           </View>

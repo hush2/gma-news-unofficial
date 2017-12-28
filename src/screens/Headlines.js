@@ -17,28 +17,26 @@ const Featured = ({ data, backText, navigation }) => {
     return <View />
   }
   return (
-    <View style={{ flex: 1, marginRight: 0 }}>
+    <View style={s.featuredContainer}>
       <TouchableOpacity
         onPress={() =>
           navigation.navigate('NewsView', { main: data, backText })
         }
       >
         <Text
-          style={{
-            paddingLeft: 10,
-            fontSize: 12,
-            color: '#fff',
-            backgroundColor: Colors[data.sec_name.toLowerCase()],
-          }}
+          style={[
+            s.featuredHeader,
+            { backgroundColor: Colors[data.sec_name.toLowerCase()] },
+          ]}
         >
           FEATURED
         </Text>
         <Image
-          style={{ width: null, height: 150 }}
+          style={s.featuredImage}
           source={{ uri: data.base_url + data.base_filename }}
         />
-        {!!data.kicker && <Text>{data.kicker}</Text>}
-        <Text>{data.title}</Text>
+        {!!data.kicker && <Text style={s.featuredKicker}>{data.kicker}</Text>}
+        <Text style={s.featuredTitle}>{data.title}</Text>
       </TouchableOpacity>
     </View>
   )
@@ -156,5 +154,28 @@ const s = StyleSheet.create({
     paddingVertical: 2,
     fontWeight: 'bold',
     marginTop: 10,
+  },
+  featuredContainer: {
+    flex: 1,
+    marginRight: 0,
+  },
+  featuredHeader: {
+    paddingLeft: 10,
+    fontSize: 12,
+    color: '#fff',
+    paddingVertical: 2,
+  },
+  featuredImage: {
+    width: null,
+    height: 150,
+    marginBottom: 2,
+  },
+  featuredKicker: {
+    fontWeight: 'bold',
+    paddingHorizontal: 6,
+    marginBottom: 4,
+  },
+  featuredTitle: {
+    paddingHorizontal: 6,
   },
 })

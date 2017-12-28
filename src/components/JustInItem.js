@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, TouchableOpacity, Text, Image } from 'react-native'
+import { View, TouchableOpacity, Text, Image, StyleSheet } from 'react-native'
 
 export default class JustInItem extends React.Component {
   render() {
@@ -11,16 +11,7 @@ export default class JustInItem extends React.Component {
     }
     const story = this.props.data
     return (
-      <TouchableOpacity
-        style={{
-          marginVertical: 5,
-          borderBottomWidth: 1,
-          borderBottomColor: '#cccccc',
-          paddingVertical: 4,
-          paddingHorizontal: 10,
-        }}
-        onPress={handleOnPress}
-      >
+      <TouchableOpacity style={s.justInContainer} onPress={handleOnPress}>
         <View style={{ flexDirection: 'row' }}>
           <Image
             resizeMethod="resize"
@@ -40,3 +31,13 @@ export default class JustInItem extends React.Component {
     )
   }
 }
+
+const s = StyleSheet.create({
+  justInContainer: {
+    marginVertical: 5,
+    borderBottomWidth: 1,
+    borderBottomColor: '#cccccc',
+    paddingVertical: 4,
+    paddingHorizontal: 10,
+  },
+})

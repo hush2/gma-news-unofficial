@@ -4,44 +4,18 @@ import { FontAwesome } from '@expo/vector-icons'
 import Swiper from 'react-native-swiper'
 
 const CircleView = (props) => (
-  <View
-    style={{
-      backgroundColor: '#9c9310',
-      marginHorizontal: 2,
-      width: 30,
-      height: 30,
-      borderRadius: 30 / 2,
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
-  >
-    <Text style={{ fontSize: 16, color: '#fff' }}>{props.value}</Text>
+  <View style={s.circleView}>
+    <Text style={s.circleText}>{props.value}</Text>
   </View>
 )
 
 const Lotto = (props) => (
-  <View style={{ paddingLeft: 4, flex: 1 }}>
-    <Text
-      style={{
-        fontSize: 18,
-        alignSelf: 'flex-start',
-        fontWeight: 'bold',
-      }}
-    >
-      LOTTO RESULT
-    </Text>
-    <View style={{ alignItems: 'center', marginTop: 10 }}>
-      <Text style={{ fontSize: 16 }}>{props.lotto.type.toUpperCase()}</Text>
-      <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
-        {props.lotto.post_date}
-      </Text>
-      <View
-        style={{
-          marginTop: 10,
-          alignItems: 'center',
-          flexDirection: 'row',
-        }}
-      >
+  <View style={s.lottoContainer}>
+    <Text style={s.lottoText}>LOTTO RESULT</Text>
+    <View style={s.lottoResultContainer}>
+      <Text style={s.lottoType}>{props.lotto.type.toUpperCase()}</Text>
+      <Text style={s.lottoDate}>{props.lotto.post_date}</Text>
+      <View style={s.lottoResults}>
         <CircleView value={props.lotto.results[0]} />
         <CircleView value={props.lotto.results[1]} />
         <CircleView value={props.lotto.results[2]} />
@@ -61,12 +35,7 @@ export default class DrawerHeader extends React.Component {
     const data = this.props.data
     return (
       <Swiper
-        style={{
-          flex: 1,
-          height: 130,
-          backgroundColor: '#dce6ee',
-          marginBottom: 4,
-        }}
+        style={s.swiper}
         index={0}
         showsButtons
         autoplay
@@ -76,21 +45,11 @@ export default class DrawerHeader extends React.Component {
         nextButton={<FontAwesome name="arrow-right" size={16} color="#AAA" />}
         prevButton={<FontAwesome name="arrow-left" size={16} color="#AAA" />}
       >
-        <View style={{ paddingLeft: 4, flex: 1 }}>
-          <Text
-            style={{
-              fontSize: 18,
-              alignSelf: 'flex-start',
-              fontWeight: 'bold',
-            }}
-          >
-            FOREX
-          </Text>
-          <Text style={{ fontSize: 40, alignSelf: 'center' }}>
-            {data.forex.usd}
-          </Text>
-          <Text style={{ fontSize: 20, alignSelf: 'center' }}>1 USD</Text>
-          <Text style={{ fontSize: 14, alignSelf: 'flex-start' }}>More...</Text>
+        <View style={s.forexContainer}>
+          <Text style={s.forexTitle}>FOREX</Text>
+          <Text style={s.forexUsd}>{data.forex.usd}</Text>
+          <Text style={s.forexOneUsd}>1 USD</Text>
+          <Text style={s.forexMore}>More...</Text>
         </View>
         {data.lotto[0] && <Lotto lotto={data.lotto[0]} />}
         {data.lotto[1] && <Lotto lotto={data.lotto[1]} />}
@@ -109,5 +68,70 @@ const s = StyleSheet.create({
     paddingVertical: 10,
     color: '#fff',
     fontSize: 22,
+  },
+  circleView: {
+    backgroundColor: '#9c9310',
+    marginHorizontal: 2,
+    width: 30,
+    height: 30,
+    borderRadius: 30 / 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  circleText: {
+    fontSize: 16,
+    color: '#fff',
+  },
+  lottoContainer: {
+    paddingLeft: 4,
+    flex: 1,
+  },
+  lottoText: {
+    fontSize: 18,
+    alignSelf: 'flex-start',
+    fontWeight: 'bold',
+  },
+  lottoResultContainer: {
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  lottoType: {
+    fontSize: 16,
+  },
+  lottoDate: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  lottoResults: {
+    marginTop: 10,
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  swiper: {
+    flex: 1,
+    height: 130,
+    backgroundColor: '#dce6ee',
+    marginBottom: 4,
+  },
+  forexTitle: {
+    fontSize: 18,
+    alignSelf: 'flex-start',
+    fontWeight: 'bold',
+  },
+  forexUsd: {
+    fontSize: 40,
+    alignSelf: 'center',
+  },
+  forexOneUsd: {
+    fontSize: 20,
+    alignSelf: 'center',
+  },
+  forexMore: {
+    fontSize: 14,
+    alignSelf: 'flex-start',
+  },
+  forexContainer: {
+    paddingLeft: 4,
+    flex: 1,
   },
 })

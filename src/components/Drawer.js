@@ -19,7 +19,7 @@ export default class MyDrawer extends React.Component {
     error: false,
   }
   async componentDidMount() {
-    this.props.navigation.navigate('DrawerOpen')
+    // this.props.navigation.navigate('DrawerOpen')
     try {
       let data = await fetchData(Urls.sconfig, 'sconfig')
       this.setState({ data: data })
@@ -84,8 +84,6 @@ const s = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F0F0F0',
-    borderBottomRightRadius: 10,
-    borderTopRightRadius: 10,
   },
   drawerItems: {
     marginVertical: 2,

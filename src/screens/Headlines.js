@@ -106,19 +106,19 @@ export default class Headlines extends React.Component {
         </View>
 
         <View>
-          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>JUST IN</Text>
+          <Text style={s.otherNews}>JUST IN</Text>
           <NewsItems
             data={this.state.data.just_in}
             backText={this.props.newsType}
             navigation={this.props.navigation}
           />
-          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>TOP PICKS</Text>
+          <Text style={s.otherNews}>TOP PICKS</Text>
           <NewsItems
             data={this.state.data.top_picks}
             backText={this.props.newsType}
             navigation={this.props.navigation}
           />
-          <Text style={{ flex: 1, backgroundColor: '#ccc' }}>TRENDING</Text>
+          <Text style={s.otherNews}>TRENDING</Text>
           <NewsItems
             data={this.state.data.trending}
             backText={this.props.newsType}
@@ -147,5 +147,14 @@ const s = StyleSheet.create({
   kicker: {
     fontSize: 14,
     color: '#e5e7f6',
+  },
+  otherNews: {
+    flex: 1,
+    textAlign: 'center',
+    color: '#FFF',
+    backgroundColor: Colors.news,
+    paddingVertical: 2,
+    fontWeight: 'bold',
+    marginTop: 10,
   },
 })

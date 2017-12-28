@@ -87,6 +87,7 @@ const StackNav = StackNavigator(
     },
   },
   {
+    initialRouteName: 'Headlines',
     navigationOptions: ({ navigation }) => ({
       headerTitle: (props) => (
         <HeaderTitle navigation={navigation} {...props} />

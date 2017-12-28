@@ -154,6 +154,7 @@ const s = StyleSheet.create({
     paddingVertical: 2,
     fontWeight: 'bold',
     marginTop: 10,
+    marginBottom: -4, // Adjust for NewsItem border
   },
   featuredContainer: {
     flex: 1,

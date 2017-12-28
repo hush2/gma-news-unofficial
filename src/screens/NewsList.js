@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollView } from 'react-native'
+import { View, ScrollView, StyleSheet } from 'react-native'
 import { Error, Loading, NewsMain, NewsRelated } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
@@ -19,22 +19,24 @@ export default class NewsList extends React.Component {
       let data = await fetchData(url, this.props.newsType)
       this.newsRelated = data.related_story_contents.map((story, index) => {
         return (
-          <NewsRelated
-            key={index}
-            data={story}
-            backText={this.props.newsType}
-            navigation={this.props.navigation}
-          />
+          <View style={s.newsRelated} key={index}>
+            <NewsRelated
+              data={story}
+              backText={this.props.newsType}
+              navigation={this.props.navigation}
+            />
+          </View>
         )
       })
       this.newsStories = data.stories.map((story, index) => {
         return (
-          <NewsItem
-            key={index}
-            data={story}
-            backText={this.props.newsType}
-            navigation={this.props.navigation}
-          />
+          <View style={s.newsItem} key={index}>
+            <NewsItem
+              data={story}
+              backText={this.props.newsType}
+              navigation={this.props.navigation}
+            />
+          </View>
         )
       })
       this.setState({ data, fetched: true })
@@ -64,3 +66,9 @@ export default class NewsList extends React.Component {
     )
   }
 }
+
+const s = StyleSheet.create({
+  newsRelated: {
+    paddingVertical: 2,
+  },
+})

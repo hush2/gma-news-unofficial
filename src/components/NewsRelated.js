@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
 export default class NewsRelated extends React.Component {
@@ -13,17 +13,22 @@ export default class NewsRelated extends React.Component {
     const story = this.props.data
     return (
       <TouchableOpacity onPress={handleOnPress}>
-        <View
-          style={{
-            flexDirection: 'row',
-            marginHorizontal: 20,
-            marginVertical: 2,
-          }}
-        >
+        <View style={s.newsRelated}>
           <FontAwesome name="newspaper-o" size={24} />
-          <Text> {story.title}</Text>
+          <Text style={s.title}>{story.title}</Text>
         </View>
       </TouchableOpacity>
     )
   }
 }
+
+const s = StyleSheet.create({
+  newsRelated: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginVertical: 2,
+  },
+  title: {
+    marginHorizontal: 10,
+  },
+})

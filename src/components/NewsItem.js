@@ -11,7 +11,6 @@ export default class NewsItem extends React.Component {
       })
     }
     const story = this.props.data
-
     return (
       <TouchableOpacity style={s.container} onPress={handleOnPress}>
         <View style={{ flexDirection: 'row' }}>
@@ -35,10 +34,9 @@ export default class NewsItem extends React.Component {
 const s = StyleSheet.create({
   container: {
     marginTop: 4,
-    marginBottom: 2,
-    borderBottomWidth: 1,
-    borderBottomColor: '#EEEEEE',
-    paddingVertical: 4,
+    borderTopWidth: 0.5,
+    borderTopColor: '#777777',
+    paddingVertical: 16,
     paddingHorizontal: 10,
   },
   image: {
@@ -57,8 +55,8 @@ const s = StyleSheet.create({
   },
   date: {
     paddingLeft: 6,
-    paddingRight: 2,
-    color: '#999',
+    marginTop: 5,
+    color: '#666666',
   },
   teaser: {
     marginTop: 6,

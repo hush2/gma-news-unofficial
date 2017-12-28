@@ -1,5 +1,11 @@
 import React from 'react'
-import { ScrollView, StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import {
+  ScrollView,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+} from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import DrawerHeader from './DrawerHeader'
@@ -35,11 +41,16 @@ export default class MyDrawer extends React.Component {
     const route = props.text.split(' ')[0]
     return (
       <TouchableOpacity
-        style={[s.drawerItem, { backgroundColor: color }]}
+        style={s.drawerItem}
         onPress={() => this.showScreen(route)}
       >
-        <FontAwesome name={props.icon} size={24} color="#FFFFFF" />
-        <Text style={s.drawerText}>{props.text}</Text>
+        <FontAwesome
+          style={{ width: 30 }}
+          name={props.icon}
+          size={24}
+          color={color}
+        />
+        <Text style={[s.drawerText, { color: color }]}>{props.text}</Text>
       </TouchableOpacity>
     )
   }
@@ -83,6 +94,7 @@ const s = StyleSheet.create({
     flex: 1,
     color: '#eeeeee',
     fontSize: 22,
+    fontWeight: 'bold',
     marginLeft: 14,
   },
   drawerItem: {

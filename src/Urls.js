@@ -1,4 +1,4 @@
-const base = 'http://data.gmanews.tv/zgmanews_contents/'
+const base = 'https://data.gmanews.tv/zgmanews_contents/'
 const n = 1
 
 export default {

@@ -49,7 +49,8 @@ const s = StyleSheet.create({
   },
   label: {
     paddingHorizontal: 6,
-    fontSize: 12,
+    paddingVertical: 4,
+    fontSize: 14,
     color: '#ffffff',
   },
   titleContainer: {

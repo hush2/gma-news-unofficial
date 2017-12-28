@@ -20,7 +20,6 @@ export default class MyDrawer extends React.Component {
     error: false,
   }
   async componentDidMount() {
-    this.props.navigation.navigate('DrawerOpen')
     try {
       let data = await fetchData(Urls.sconfig, 'sconfig')
       this.setState({ data: data })

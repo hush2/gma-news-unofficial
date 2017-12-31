@@ -59,7 +59,6 @@ export default class DrawerHeader extends React.Component {
         </View>
         {data.lotto[0] ? <Lotto lotto={data.lotto[0]} /> : <Unavailable />}
         {data.lotto[1] ? <Lotto lotto={data.lotto[1]} /> : <Unavailable />}
-        {false}
       </Swiper>
     )
   }

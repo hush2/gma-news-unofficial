@@ -76,9 +76,9 @@ const StackNav = StackNavigator(
         <NewsList newsType="HashTag" navigation={navigation} />
       ),
     },
-    Serbisyo: {
+    'Serbisyo Publiko': {
       screen: ({ navigation }) => (
-        <NewsList newsType="Serbisyo" navigation={navigation} />
+        <NewsList newsType="Serbisyo Publiko" navigation={navigation} />
       ),
     },
     NewsView: {

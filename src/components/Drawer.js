@@ -38,7 +38,7 @@ export default class MyDrawer extends React.Component {
 
   DrawerItem = (props) => {
     const color = Colors[props.text.toLowerCase()]
-    const route = props.text.split(' ')[0]
+    const route = props.text
     return (
       <TouchableOpacity
         style={s.drawerItem}

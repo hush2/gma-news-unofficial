@@ -27,6 +27,12 @@ const Lotto = (props) => (
   </View>
 )
 
+const Unavailable = () => (
+  <View style={s.unavailable}>
+    <Text>LOTTO RESULT UNAVAILABLE</Text>
+  </View>
+)
+
 export default class DrawerHeader extends React.Component {
   render() {
     if (!this.props.data.forex) {
@@ -51,8 +57,9 @@ export default class DrawerHeader extends React.Component {
           <Text style={s.forexOneUsd}>1 USD</Text>
           <Text style={s.forexMore}>More...</Text>
         </View>
-        {data.lotto[0] && <Lotto lotto={data.lotto[0]} />}
-        {data.lotto[1] && <Lotto lotto={data.lotto[1]} />}
+        {data.lotto[0] ? <Lotto lotto={data.lotto[0]} /> : <Unavailable />}
+        {data.lotto[1] ? <Lotto lotto={data.lotto[1]} /> : <Unavailable />}
+        {false}
       </Swiper>
     )
   }
@@ -133,5 +140,10 @@ const s = StyleSheet.create({
   forexContainer: {
     paddingLeft: 4,
     flex: 1,
+  },
+  unavailable: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 })

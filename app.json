@@ -9,6 +9,12 @@
     "splash": {
       "image": "./src/assets/app.png",
       "backgroundColor": "#FFFFFF"
-    },    
+    },
+    "ios": {
+      "bundleIdentifier": "io.github.hush2.gmanews"
+    },
+    "android": {
+      "package": "io.github.hush2.gmanews"
+    }
   }
 }

@@ -32,6 +32,7 @@ const Featured = ({ data, backText, navigation }) => {
           FEATURED
         </Text>
         <Image
+          resizeMethod="resize"
           style={s.featuredImage}
           source={{ uri: data.base_url + data.base_filename }}
         />

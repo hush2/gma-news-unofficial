@@ -23,6 +23,7 @@ export default class NewsMain extends React.Component {
         }
       >
         <ImageBackground
+          resizeMethod="resize"
           source={{ uri: encodeURI(main.base_url + main.base_filename) }}
           style={s.imageBackground}
         >

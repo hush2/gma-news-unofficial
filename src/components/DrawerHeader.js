@@ -45,7 +45,7 @@ export default class DrawerHeader extends React.Component {
         index={0}
         showsButtons
         autoplay
-        autoplayTimeout={6}
+        autoplayTimeout={3}
         showsPagination={false}
         loop={true}
         nextButton={<FontAwesome name="arrow-right" size={16} color="#AAA" />}

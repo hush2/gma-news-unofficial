@@ -114,7 +114,6 @@ const s = StyleSheet.create({
     flexDirection: 'row',
   },
   swiper: {
-    flex: 1,
     height: 130,
     backgroundColor: '#dce6ee',
     marginBottom: 4,

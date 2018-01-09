@@ -1,20 +1,21 @@
 {
   "expo": {
     "name": "GMA News Unofficial",
+    "description": "GMA News Online continues to deliver breaking news in the Philippines and around the world.",
     "slug": "gma-news-unofficial",
-    "version": "0.2",
+    "version": "0.3",
     "privacy": "public",
     "sdkVersion": "23.0.0",
     "icon": "./src/assets/app.png",
     "splash": {
-      "image": "./src/assets/app.png",
+      "image": "./src/assets/splash.png",
       "backgroundColor": "#FFFFFF"
     },
     "ios": {
-      "bundleIdentifier": "io.github.hush2.gmanews"
+      "bundleIdentifier": "net.hush2.gmanews"
     },
     "android": {
-      "package": "io.github.hush2.gmanews"
+      "package": "net.hush2.gmanews"
     }
   }
 }

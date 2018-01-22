@@ -3,7 +3,7 @@
     "name": "GMA News Unofficial",
     "description": "GMA News Online continues to deliver breaking news in the Philippines and around the world.",
     "slug": "gma-news-unofficial",
-    "version": "0.3",
+    "version": "0.4",
     "privacy": "public",
     "sdkVersion": "23.0.0",
     "icon": "./src/assets/app.png",

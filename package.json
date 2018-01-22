@@ -1,6 +1,6 @@
 {
   "name": "gma-news-unofficial",
-  "version": "0.1.0",
+  "version": "0.4",
   "private": true,
   "devDependencies": {
     "jest-expo": "23.0.0",

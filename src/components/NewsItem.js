@@ -11,14 +11,13 @@ export default class NewsItem extends React.Component {
       })
     }
     const story = this.props.data
+    const imageUrl = story.base_url + story.base_filename
     return (
       <TouchableOpacity style={s.container} onPress={handleOnPress}>
         <View style={{ flexDirection: 'row' }}>
-          <Image
-            style={s.image}
-            resizeMethod="resize"
-            source={{ uri: encodeURI(story.base_url + story.base_filename) }}
-          />
+          {!!imageUrl && (
+            <Image style={s.image} resizeMethod="resize" source={{ uri: encodeURI(imageUrl) }} />
+          )}
           <View style={{ flex: 1 }}>
             {!!story.kicker && <Text style={s.kicker}>{story.kicker}</Text>}
             <Text style={s.title}>{story.title}</Text>

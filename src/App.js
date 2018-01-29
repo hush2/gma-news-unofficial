@@ -88,7 +88,6 @@ export default () => (
 const s = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === 'android' ? Expo.Constants.statusBarHeight : 0,
   },
   header: {
     flexDirection: 'row',

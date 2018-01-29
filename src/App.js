@@ -1,12 +1,6 @@
 import React from 'react'
 import Expo from 'expo'
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native'
+import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
 import Drawer from './components/Drawer'
@@ -14,7 +8,7 @@ import Headlines from './screens/Headlines'
 import NewsList from './screens/NewsList'
 import NewsView from './screens/NewsView'
 
-const HeaderTitle = (props) => {
+const HeaderTitle = props => {
   // Use the 'title' property
   if (props.children) {
     return <Text style={s.title}>{props.children}</Text>
@@ -32,54 +26,34 @@ const HeaderTitle = (props) => {
 const StackNav = StackNavigator(
   {
     Headlines: {
-      screen: ({ navigation }) => (
-        <Headlines newsType="Headlines" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <Headlines newsType="Headlines" navigation={navigation} />,
     },
     News: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="News" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="News" navigation={navigation} />,
     },
     Sports: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Sports" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Sports" navigation={navigation} />,
     },
     Money: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Money" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Money" navigation={navigation} />,
     },
     SciTech: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="SciTech" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="SciTech" navigation={navigation} />,
     },
     Showbiz: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Showbiz" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Showbiz" navigation={navigation} />,
     },
     Lifestyle: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Lifestyle" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Lifestyle" navigation={navigation} />,
     },
     Opinion: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Opinion" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Opinion" navigation={navigation} />,
     },
     HashTag: {
-      screen: ({ navigation }) => (
-        <NewsList newsType="HashTag" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="HashTag" navigation={navigation} />,
     },
     'Serbisyo Publiko': {
-      screen: ({ navigation }) => (
-        <NewsList newsType="Serbisyo Publiko" navigation={navigation} />
-      ),
+      screen: ({ navigation }) => <NewsList newsType="Serbisyo Publiko" navigation={navigation} />,
     },
     NewsView: {
       screen: NewsView,
@@ -89,9 +63,7 @@ const StackNav = StackNavigator(
   {
     initialRouteName: 'Headlines',
     navigationOptions: ({ navigation }) => ({
-      headerTitle: (props) => (
-        <HeaderTitle navigation={navigation} {...props} />
-      ),
+      headerTitle: props => <HeaderTitle navigation={navigation} {...props} />,
     }),
   }
 )

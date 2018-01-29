@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  ImageBackground,
-  View,
-  Text,
-  TouchableOpacity,
-} from 'react-native'
+import { StyleSheet, ImageBackground, View, Text, TouchableOpacity } from 'react-native'
 import { BlurView } from 'expo'
 
 export default class NewsMain extends React.Component {

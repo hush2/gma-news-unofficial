@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native'
+import { StyleSheet, ScrollView, View, Text, Image, TouchableOpacity } from 'react-native'
 import { Error, Loading, NewsMain, NewsItem } from '../components'
 import Urls from '../Urls'
 import { Colors } from '../Constants'
@@ -18,17 +11,8 @@ const Featured = ({ data, backText, navigation }) => {
   }
   return (
     <View style={s.featuredContainer}>
-      <TouchableOpacity
-        onPress={() =>
-          navigation.navigate('NewsView', { main: data, backText })
-        }
-      >
-        <Text
-          style={[
-            s.featuredHeader,
-            { backgroundColor: Colors[data.sec_name.toLowerCase()] },
-          ]}
-        >
+      <TouchableOpacity onPress={() => navigation.navigate('NewsView', { main: data, backText })}>
+        <Text style={[s.featuredHeader, { backgroundColor: Colors[data.sec_name.toLowerCase()] }]}>
           FEATURED
         </Text>
         <Image
@@ -43,15 +27,10 @@ const Featured = ({ data, backText, navigation }) => {
   )
 }
 
-const NewsItems = (props) => {
+const NewsItems = props => {
   return props.data.map((story, index) => {
     return (
-      <NewsItem
-        key={index}
-        data={story}
-        backText={props.backText}
-        navigation={props.navigation}
-      />
+      <NewsItem key={index} data={story} backText={props.backText} navigation={props.navigation} />
     )
   })
 }
@@ -133,19 +112,6 @@ const s = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
-  },
-  error: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imageBackground: {
-    width: null,
-    height: 220,
-  },
-  kicker: {
-    fontSize: 14,
-    color: '#e5e7f6',
   },
   otherNews: {
     flex: 1,

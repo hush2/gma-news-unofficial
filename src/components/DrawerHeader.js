@@ -3,13 +3,13 @@ import { StyleSheet, Text, View } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 import Swiper from 'react-native-swiper'
 
-const CircleView = (props) => (
+const CircleView = props => (
   <View style={s.circleView}>
     <Text style={s.circleText}>{props.value}</Text>
   </View>
 )
 
-const Lotto = (props) => (
+const Lotto = props => (
   <View style={s.lottoContainer}>
     <Text style={s.lottoText}>LOTTO RESULT</Text>
     <View style={s.lottoResultContainer}>
@@ -65,16 +65,6 @@ export default class DrawerHeader extends React.Component {
 }
 
 const s = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  drawerItem: {
-    textAlign: 'center',
-    marginVertical: 5,
-    paddingVertical: 10,
-    color: '#fff',
-    fontSize: 22,
-  },
   circleView: {
     backgroundColor: '#9c9310',
     marginHorizontal: 2,

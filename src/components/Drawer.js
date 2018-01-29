@@ -1,12 +1,5 @@
 import React from 'react'
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  Linking,
-} from 'react-native'
+import { ScrollView, StyleSheet, View, Text, TouchableOpacity, Linking } from 'react-native'
 import { NavigationActions, SafeAreaView } from 'react-navigation'
 import { FontAwesome } from '@expo/vector-icons'
 import DrawerHeader from './DrawerHeader'
@@ -28,7 +21,7 @@ export default class MyDrawer extends React.Component {
     }
   }
 
-  showScreen = (route) => {
+  showScreen = route => {
     const action = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: route })],
@@ -36,20 +29,12 @@ export default class MyDrawer extends React.Component {
     this.props.navigation.dispatch(action)
   }
 
-  DrawerItem = (props) => {
+  DrawerItem = props => {
     const color = Colors[props.text.toLowerCase()]
     const route = props.text
     return (
-      <TouchableOpacity
-        style={s.drawerItem}
-        onPress={() => this.showScreen(route)}
-      >
-        <FontAwesome
-          style={{ width: 30 }}
-          name={props.icon}
-          size={24}
-          color={color}
-        />
+      <TouchableOpacity style={s.drawerItem} onPress={() => this.showScreen(route)}>
+        <FontAwesome style={{ width: 30 }} name={props.icon} size={24} color={color} />
         <Text style={[s.drawerText, { color: color }]}>{props.text}</Text>
       </TouchableOpacity>
     )
@@ -74,9 +59,7 @@ export default class MyDrawer extends React.Component {
             <this.DrawerItem text="HashTag" icon="hashtag" />
             <this.DrawerItem text="Serbisyo Publiko" icon="support" />
             <TouchableOpacity
-              onPress={() =>
-                Linking.openURL('https://github.com/hush2/gma-news-unofficial')
-              }
+              onPress={() => Linking.openURL('https://github.com/hush2/gma-news-unofficial')}
             >
               <View style={s.about}>
                 <Text style={s.aboutText}>CREATED BY github.com/hush2</Text>

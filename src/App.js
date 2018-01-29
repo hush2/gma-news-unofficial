@@ -1,6 +1,5 @@
 import React from 'react'
-import Expo from 'expo'
-import { Platform, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, StatusBar } from 'react-native'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { DrawerNavigator, StackNavigator } from 'react-navigation'
 import Drawer from './components/Drawer'
@@ -81,6 +80,7 @@ const DrawerNav = DrawerNavigator(
 
 export default () => (
   <View style={s.container}>
+    <StatusBar backgroundColor="#FFF" barStyle="light-content" />
     <DrawerNav />
   </View>
 )

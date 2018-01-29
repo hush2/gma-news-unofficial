@@ -1,6 +1,6 @@
 {
   "name": "gma-news-unofficial",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "devDependencies": {
     "jest-expo": "23.0.0",
@@ -22,7 +22,7 @@
     "expo": "^23.0.4",
     "moment": "^2.20.0",
     "react": "16.0.0",
-    "react-native": "0.50.3",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-23.0.0.tar.gz",
     "react-native-blur": "^3.2.2",
     "react-native-htmlview": "^0.12.1",
     "react-native-swiper": "^1.5.13",

@@ -5,7 +5,7 @@
     "slug": "gma-news-unofficial",
     "version": "0.5.1",
     "privacy": "public",
-    "sdkVersion": "23.0.0",
+    "sdkVersion": "32.0.0",
     "icon": "./src/assets/app.png",
     "splash": {
       "image": "./src/assets/splash.png",
